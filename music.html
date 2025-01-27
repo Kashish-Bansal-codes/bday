@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wooden Music Box</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Courier New', Courier, monospace;
+      background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* Music Box Container */
+    .music-box {
+      width: 350px;
+      height: 500px;
+      background: #9c6644;
+      border-radius: 15px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+      border: 4px solid #6c4732;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      position: relative;
+    }
+
+    /* Wooden Lid */
+    .music-box .lid {
+      width: 370px;
+      height: 50px;
+      background: #9c6644;
+      border: 4px solid #6c4732;
+      border-radius: 15px 15px 0 0;
+      position: absolute;
+      top: -60px;
+      left: -10px;
+      box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.2);
+      transform-origin: top;
+      transform: rotateX(30deg);
+    }
+
+    /* Animation Note */
+    .music-box .note {
+      font-size: 2rem;
+      color: #f7d9c4;
+      position: absolute;
+      animation: floatNote 2s infinite;
+    }
+
+    @keyframes floatNote {
+      0%, 100% {
+        transform: translateY(0);
+        opacity: 0.8;
+      }
+      50% {
+        transform: translateY(-20px);
+        opacity: 1;
+      }
+    }
+
+    .note-1 {
+      top: -30px;
+      left: 60px;
+      animation-delay: 0.1s;
+    }
+
+    .note-2 {
+      top: -50px;
+      left: 150px;
+      animation-delay: 0.3s;
+    }
+
+    .note-3 {
+      top: -40px;
+      left: 240px;
+      animation-delay: 0.5s;
+    }
+
+    /* Inside the Music Box */
+    .music-box h1 {
+      font-size: 1.8rem;
+      margin: 60px 0 20px;
+      color: #fff;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .music-box button {
+      padding: 12px 24px;
+      background: #f7c59f;
+      color: #6c4732;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.3s;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .music-box button:hover {
+      background: #f3ab7b;
+    }
+
+    /* Stylish Music Controls */
+    .music-controls {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .music-controls button {
+      width: 50px;
+      height: 50px;
+      border: none;
+      border-radius: 50%;
+      background: #f7c59f;
+      color: #6c4732;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .music-controls button:hover {
+      transform: scale(1.1);
+      background: #f3ab7b;
+    }
+
+    /* Picture Section */
+    .bottom-picture {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 200px;
+    }
+
+    .bottom-picture img {
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Footer Section */
+    footer {
+      position: absolute;
+      bottom: 10px;
+      font-size: 0.8rem;
+      color: #6c4732;
+    }
+  </style>
+</head>
+<body>
+  <div class="music-box">
+    <div class="lid"></div>
+    <div class="note note-1">🎵</div>
+    <div class="note note-2">🎶</div>
+    <div class="note note-3">🎼</div>
+    <h1>Magical Music Box</h1>
+    <p style="text-align: center; color: #fff;">Another special song for my special one <333</p>
+    <button onclick="playMusic()">Play Music</button>
+    <audio id="music" src="Die with a smile.mp3"></audio>
+
+    <div class="music-controls">
+      <button onclick="music.play()">▶️</button>
+      <button onclick="music.pause()">⏸️</button>
+      <button onclick="music.currentTime = 0; music.pause()">⏹️</button>
+    </div>
+
+    <div class="bottom-picture">
+      <img src="img10.jpg" height="88%" alt="Special Moment">
+    </div>
+  </div>
+
+  <footer>Made with ❤️ for the special birthday!</footer>
+
+  <script>
+    const music = document.getElementById('music');
+
+    function playMusic() {
+      music.play();
+      alert("Enjoy the song: 'Die with a Smile' 🎶");
+    }
+  </script>
+</body>
+</html>

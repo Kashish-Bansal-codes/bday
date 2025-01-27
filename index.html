@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+            color: #333;
+        }
+        header {
+            text-align: center;
+            padding: 2rem;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem;
+            color: #ff6f61;
+        }
+        section {
+            padding: 2rem;
+            margin: 1rem auto;
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .cake {
+            text-align: center;
+            position: relative;
+        }
+        .cake .plate {
+            width: 400px;
+            height: 30px;
+            background: #d8bfd8;
+            border-radius: 50%;
+            margin: 0 auto;
+            position: absolute;
+            bottom: -10px; /* Place plate at the bottom */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1; /* Ensure plate is beneath the layers and candles */
+        }
+        .cake .layers {
+            position: relative;
+            width: 300px;
+            margin: 0 auto;
+            z-index: 2; /* Ensure cake layers are above the plate */
+        }
+        .cake .layer {
+            width: 100%;
+            height: 60px;
+            border-radius: 10px;
+            margin-top: 5px;
+            position: relative;
+        }
+        .cake .layer1 {
+            background: linear-gradient(135deg, #ff6b6b, #ff9980);
+        }
+        .cake .layer2 {
+            background: linear-gradient(135deg, #ffd700, #ffeb3b);
+        }
+        .cake .layer3 {
+            background: linear-gradient(135deg, #87cefa, #00bfff);
+        }
+        .cake .candles {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: -40px; /* Adjust candle position */
+            z-index: 3; /* Ensure candles are above the cake layers */
+        }
+        .cake .candle {
+            width: 15px;
+            height: 50px;
+            background: #fff;
+            border-radius: 5px;
+            position: relative;
+        }
+        .cake .candle .flame {
+            width: 10px;
+            height: 15px;
+            background: radial-gradient(circle, #ff4500, #ffd700);
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50%;
+            animation: flicker 0.5s infinite;
+        }
+        @keyframes flicker {
+            0%, 100% {
+                transform: translateX(-50%) scale(1);
+            }
+            50% {
+                transform: translateX(-50%) scale(1.2);
+            }
+        }
+        .balloons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        .confetti-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    z-index: 9999; /* Ensure it's above all other content */
+}
+
+.confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 20px;
+    background-color: #ff6347;
+    opacity: 0.9;
+    animation: fall 5s infinite linear;
+}
+
+.confetti-piece:nth-child(odd) {
+    background-color: #ffeb3b;
+}
+
+.confetti-piece:nth-child(even) {
+    background-color: #32cd32;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+.confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 20px;
+    background-color: #ff6347;
+    opacity: 0.9;
+    animation: fall 5s infinite linear;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
+.balloon-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    z-index: 9998; /* Ensure it’s above the cake but below confetti */
+}
+
+.balloon {
+    position: absolute;
+    width: 80px;
+    height: 100px;
+    background-color: #ff6347;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: floatUp 10s ease-in-out infinite;
+}
+
+.balloon:nth-child(odd) {
+    background-color: #ffeb3b;
+}
+
+.balloon:nth-child(even) {
+    background-color: #32cd32;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+    }
+}
+a {
+      display: inline-block;
+      padding: 10px 20px;
+      background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 25px;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    a:hover {
+      transform: scale(1.1);
+      background: linear-gradient(45deg, #fad0c4, #ff9a9e);
+    }
+    /* Basic button style */
+.stylish-button {
+  background-color: #f9c1d9; /* Light pink background */
+  color: white; /* White text color */
+  font-family: 'Arial', sans-serif; /* Font style */
+  font-size: 16px; /* Font size */
+  padding: 12px 24px; /* Add padding for larger clickable area */
+  border: none; /* Remove default border */
+  border-radius: 25px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Hover effect */
+.stylish-button:hover {
+  background-color: #f78fb3; /* Darker pink when hovered */
+  transform: scale(1.05); /* Slightly enlarge the button */
+}
+
+/* Focus effect */
+.stylish-button:focus {
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 10px rgba(255, 105, 180, 0.7); /* Pink glow effect */
+}
+/* Style the horizontal line */
+
+.video-edits {
+    text-align: center; /* Centers text inside the section */
+    margin: 20px auto; /* Ensures the section is centered horizontally */
+    max-width: 800px; /* Limits the width of the section */
+    padding: 20px; /* Adds internal spacing */
+    background: rgba(255, 255, 255, 0.8); /* Optional: Matches other sections' background */
+    border-radius: 10px; /* Optional: Adds rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
+}
+
+  
+
+  .music-button {
+    background: linear-gradient(to right, #ff9a9e, #fad0c4);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .music-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  }
+  /* Stylish Button */
+.back-button {
+  background: linear-gradient(to right, #ff758c, #ff7eb3);
+  color: #fff;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.back-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+        
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #ff6f61;
+            color: #fff;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    
+    <header>
+        <h1>Happy Birthday Khushiiiii!</h1>
+        <p>Welcome to your special surprise website!</p>
+        <p>P.S- Hope you'll like it ♥</p>
+    </header>
+
+    <section class="cake">
+        <h2 style="font-family: cursive;">The Birthday Cake
+        </h2>
+        <div class="confetti-container"></div>
+
+        <div>b</div>
+        <div>b</div>
+        <div class="candles">
+            <div class="candle">
+                <div class="flame"></div>
+            </div>
+            <div class="candle">
+                <div class="flame"></div>
+            </div>
+            <div class="candle">
+                <div class="flame"></div>
+            </div>
+        </div>
+        <div class="layers">
+            <div class="layer layer1"></div>
+            <div class="layer layer2"></div>
+            <div class="layer layer3"></div>
+        </div>
+        <div class="plate"></div>
+        
+    </section>
+
+    <section class="balloons">
+        <button id="flowerss" class="stylish-button">Click for some flowers</button>
+        <div class="custom-line"></div> <!-- Custom line div -->
+        <div>
+            <p></p>
+        </div>
+        <div class="balloon-container"></div>
+    </section>
+    
+    
+
+    <section class="video-edits">
+        <h2>A Video edit ❤️ </h2>
+        <p>This song is very special for me. I hope you'll love ittttt. Now click on this button and enjoy it hahahaha </p>
+        <!-- Stylish Button -->
+        <button class="music-button" onclick="window.location.href='video.html'">View Video Edit</button>
+    </section>
+    
+    
+    <section class="letter">
+        <h2>A Letter from the Heart ❤️</h2>
+        <p>Mai geeta ki kasam khakr kehti hu jo bhi bolungi sch bolungi sch ke siwaye kuch
+            nhi bolungi(dramatic af!) Acha another thing... Scissors se envelop ko kholne ke liye click near the tip of it's opening okk? 2-3 clicks mai khul jayega. And by clicking on each page you can open it and read it more clearly
+
+        </p>
+        <a href="letter.html">Click on me for another surprise!</a>
+
+
+       
+    </section>
+
+    <section class="gallery">
+        <h2>Photo Gallery</h2>
+        <p>Lets check out some photos? But usse pehle kuch important instructions. 1) Play the song first on top left. 2) slowly drag the photos along with the lyrics. 3) Lyrics khatam hone ke baad bhi ek photo and ek heart hai do check it out. 4) Enjoyyyyyyyyyyyyy!!!!</p>
+        <a href="photo.html">Open Galleryyyy!!</a>
+    </section>
+
+    <section class="video-edits">
+        <h2>Musical Surprise</h2>
+        <p>Experience the magic of music with my special music box.Dekho dekho music ka jadoo!</p>
+        <button class="music-button" onclick="window.location.href='music.html'">Open Music Box</button>
+      </section>
+
+    <section class="video-edits">
+        <h2>Another Card ❤️</h2>
+        <p>Hehehehehehe it's still not over yet!!! 
+            Enjoyy every part of it to it's fullest ♥
+        </p>
+        <button class="music-button" onclick="window.location.href='card.html'">Open The Card</button>
+    </section>
+
+    <section class="video-edits">
+        <h2>Something you adore a lot</h2>
+        <p>Try making a guess what it will be??</p>
+        <button class="music-button" onclick="window.location.href='moon.html'">Let's goo</button>
+    </section>
+
+    <footer>
+        <p>Made with ❤️ by Kashish</p>
+    </footer>
+    <script>
+function createConfetti() {
+    const confettiContainer = document.querySelector('.confetti-container');
+    
+    // Generate random number of confetti pieces
+    for (let i = 0; i < 100; i++) {
+        const confettiPiece = document.createElement('div');
+        confettiPiece.classList.add('confetti-piece');
+        confettiPiece.style.left = `${Math.random() * 100}vw`;
+        confettiPiece.style.animationDuration = `${Math.random() * 2 + 3}s`;
+        confettiPiece.style.animationDelay = `${Math.random() * 2}s`;
+        
+        // Add random size for variation
+        const size = Math.random() * 10 + 5;
+        confettiPiece.style.width = `${size}px`;
+        confettiPiece.style.height = `${size}px`;
+
+        // Append confetti piece to the container
+        confettiContainer.appendChild(confettiPiece);
+    }
+    
+    // Stop confetti after 10 seconds
+    setTimeout(() => {
+        confettiContainer.innerHTML = '';  // Removes all confetti pieces
+    }, 35000); // 10 seconds
+}
+
+function createBalloons() {
+    const balloonContainer = document.querySelector('.balloon-container');
+    
+    // Generate random number of balloons
+    for (let i = 0; i < 15; i++) {
+        const balloon = document.createElement('div');
+        balloon.classList.add('balloon');
+        
+        // Position balloons randomly across the screen
+        balloon.style.left = `${Math.random() * 100}vw`;
+        balloon.style.animationDuration = `${Math.random() * 3 + 7}s`;  // Balloon float duration varies
+
+        // Add random size for variation
+        const size = Math.random() * 30 + 40; // Between 40px and 70px width
+        balloon.style.width = `${size}px`;
+        balloon.style.height = `${size * 1.25}px`;  // Height adjusted to keep it proportional
+
+        // Append balloon to the container
+        balloonContainer.appendChild(balloon);
+    }
+    
+    // Stop balloons after 10 seconds
+    setTimeout(() => {
+        balloonContainer.innerHTML = '';  // Removes all balloons
+    }, 30000); // 10 seconds
+}
+
+// Call both createConfetti and createBalloons after page loads
+window.onload = () => {
+    createConfetti();
+    createBalloons();
+};
+   // Add event listener to the button
+   document.getElementById('flowerss').addEventListener('click', function() {
+            // Redirect to another HTML page
+            window.location.href = 'flowers.html'; // Replace with your target page
+        });
+ 
+    </script>
+</body>
+</html>

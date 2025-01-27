@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confetti Celebration!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+            overflow: hidden; /* To prevent scrollbars */
+        }
+        
+        .confetti {
+            position: absolute;
+            top: -10px;
+            pointer-events: none;
+            animation: confetti-animation 4s linear infinite;
+        }
+        
+        @keyframes confetti-animation {
+            0% {
+                transform: translateY(-10px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(100vh) rotate(180deg);
+            }
+            100% {
+                transform: translateY(-10px) rotate(360deg);
+            }
+        }
+
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 20px;
+            background-color: #ff6347;
+            opacity: 0.9;
+            animation: fall 5s infinite linear;
+        }
+
+        .confetti-piece:nth-child(odd) {
+            background-color: #ffeb3b;
+        }
+
+        .confetti-piece:nth-child(even) {
+            background-color: #32cd32;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="confetti-container"></div>
+
+    <script>
+        // Create confetti effect
+        function createConfetti() {
+            const confettiContainer = document.querySelector('.confetti-container');
+            
+            // Generate random number of confetti pieces
+            for (let i = 0; i < 100; i++) {
+                const confettiPiece = document.createElement('div');
+                confettiPiece.classList.add('confetti-piece');
+                confettiPiece.style.left = `${Math.random() * 100}vw`;
+                confettiPiece.style.animationDuration = `${Math.random() * 2 + 3}s`;
+                confettiPiece.style.animationDelay = `${Math.random() * 2}s`;
+                
+                // Add a random size for variation
+                const size = Math.random() * 10 + 5;
+                confettiPiece.style.width = `${size}px`;
+                confettiPiece.style.height = `${size}px`;
+
+                // Append confetti piece to the container
+                confettiContainer.appendChild(confettiPiece);
+            }
+        }
+
+        // Call the createConfetti function after page loads
+        window.onload = () => {
+            createConfetti();
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moon with Twinkling Stars</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: linear-gradient(to bottom, #001d3d, #003566);
+      font-family: Arial, sans-serif;
+    }
+
+    .moon-container {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .moon {
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(circle, #ffffff, #d1d1d1, #b3b3b3);
+      border-radius: 50%;
+      box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.5);
+      animation: moonGlow 3s infinite alternate ease-in-out;
+    }
+
+    @keyframes moonGlow {
+      0% {
+        box-shadow: 0 0 20px 8px rgba(255, 255, 255, 0.3);
+      }
+      100% {
+        box-shadow: 0 0 40px 15px rgba(255, 255, 255, 0.8);
+      }
+    }
+
+    .star {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 2s infinite ease-in-out alternate;
+    }
+
+    @keyframes twinkle {
+      0% {
+        opacity: 0.5;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    .caption {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      color: white;
+      font-size: 1.5rem;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="moon-container">
+    <div class="moon"></div>
+    <div class="caption">The moon reminds me of you—always shining bright even in the darkest times. So proud of you ♥</div>
+  </div>
+
+  <script>
+    const container = document.querySelector('.moon-container');
+
+    function createStar() {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      const size = Math.random() * 3 + 2;
+      star.style.width = `${size}px`;
+      star.style.height = `${size}px`;
+      star.style.top = `${Math.random() * 100}vh`;
+      star.style.left = `${Math.random() * 100}vw`;
+      star.style.animationDuration = `${Math.random() * 3 + 2}s`;
+      container.appendChild(star);
+
+      setTimeout(() => {
+        star.remove();
+      }, 5000);
+    }
+
+    setInterval(createStar, 200);
+  </script>
+</body>
+</html>

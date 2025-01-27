@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Letter</title>
+    <link rel="stylesheet" href="letter.css">
+    <!-- GSAP Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body class="scissors">
+  <div class="envelop">
+    <div class="envelop__front-paper"></div>
+    <div class="envelop__back-paper"></div>
+    <div class="envelop__up-paper js-up-paper"></div>
+    <div class="envelop__sticker js-sticker"></div>
+    <div class="envelop__false-sticker"></div>
+    <div class="envelop__content js-envelop-content">
+      <div class="love-notes">
+        <div class="note js-note">
+          <div class="note__text">
+            <p>
+              Happy Birthday to the one who means the world to me!♥ 
+              I can't put into words how thankful i am for you for walking into my life and filling it with so much light.
+              Thank you for bwing the reason behind my smiles. for understanding me like no one else can, and for standing by my side no matter ehat life throws our way!!
+            </p>
+          </div>
+        </div>
+        <div class="note js-note">
+          <div class="note__text">
+            <p>You're my blessing from the universe, my proof that miracles do happen. I'll always be grateful for the day I found you, and even more grateful that you stayed.♥ Today is all about celebrating you, the beautiful soul that makes every day so much brighter. Have the most amazing birthday-- you deserve nothing less!! Thank you for existing meri jaan!! </p>
+          </div>
+        </div>
+        <div class="note js-note">
+          <div class="note__text">
+            <p>Thank you for making me realize & making me feel that i deserve to le loves, to be happy anf to have someone as amazing as you !!
+            I hope your birthday this year is better than your past ones, you deserve to have everything you wish for... Thank you so much for being the person that you are, I feel grateful to have crossed paths with you and grateful to have you in my life forever♥</p>
+            <p>Love youu! &hearts;.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Link to Custom JavaScript -->
+  <script src="letter.js"></script>
+
+  <script>
+    // Test if JS is loading correctly
+    console.log("JS file loaded successfully!");
+
+    // Test GSAP by animating the envelope
+    gsap.to(".envelop", { scale: 1.2, duration: 1 });
+  </script>
+</body>
+</html>
